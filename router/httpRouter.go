@@ -8,7 +8,10 @@ import (
 func NewHTTPRouter(h *handler.Handler) *gin.Engine {
 	r := gin.Default()
 
-	r.GET("/covid/summary", h.CovidSummary)
+	covidGroup := r.Group("covid")
+	{
+		covidGroup.GET("summary", h.CovidSummary)
+	}
 
 	return r
 }

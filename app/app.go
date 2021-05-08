@@ -8,6 +8,7 @@ import (
 	"github.com/estkungzc/covidTrackingApi/model"
 	"github.com/estkungzc/covidTrackingApi/router"
 	"github.com/estkungzc/covidTrackingApi/service"
+	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
 )
@@ -21,6 +22,7 @@ func NewApp() *App {
 	cfg := model.Config{}
 
 	config.LoadConfig(&cfg, "config")
+	gin.SetMode(cfg.Env)
 
 	covidTrackerService := service.NewCovidTrackerService()
 

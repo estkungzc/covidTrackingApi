@@ -28,3 +28,12 @@ Response of summarize COVID-19 stats
     }
 }
 ```
+
+## Environment
+Change environments in config/config.yaml
+```yaml
+env: debug || release || test
+service-name: covid-tracking-api
+http:
+  port: 3000
+```
