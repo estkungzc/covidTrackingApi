@@ -2,12 +2,13 @@
 
 ## Description
 - API summary COVID-19 stats using https://covid19.th-stat.com/api/open/cases
-- Structure base on https://github.com/thanawatpetchuen/covidTrackingApi
+- Structure base on https://github.com/thanawatpetchuen/ginstructure
 
 ## Tools
 - [Gin Web Framework](https://github.com/gin-gonic/gin)
 - [Viper](https://github.com/spf13/viper) - Configuration
 - [Heimdall](https://github.com/gojek/heimdall) - HTTP Client
+- Go modules
 
 ## API
 | resource | description |
@@ -37,3 +38,30 @@ service-name: covid-tracking-api
 http:
   port: 3000
 ```
+
+## Project Structure
+
+    .
+    ├── app
+    │   └── app.go
+    ├── config
+    │   └── config.yaml
+    ├── handler
+    │   └── handler.go
+    ├── internal
+    │   ├── config
+    │   │   └── loader.go
+    │   └── server
+    │       └── server.go
+    ├── model
+    │   └── config.go
+    ├── router
+    │   └── httpRouter.go
+    ├── service
+    │   ├── covid_tracker.go
+    │   └── covid_tracker_test.go
+    ├── docker-compose.yml
+    ├── Dockerfile
+    ├── Makefile
+    ├── main.go
+    └── README.md
