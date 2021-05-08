@@ -1,0 +1,4 @@
+env: develop
+service-name: covid-tracking-api
+http:
+  port: 3000
