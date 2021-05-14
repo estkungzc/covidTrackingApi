@@ -24,7 +24,7 @@ func NewApp() *App {
 	config.LoadConfig(&cfg, "config")
 	gin.SetMode(cfg.Env)
 
-	covidTrackerService := service.NewCovidTrackerService()
+	covidTrackerService := service.NewCovidTrackerServiceImp()
 
 	handlers := handler.NewHandler(covidTrackerService)
 	httpRouter := router.NewHTTPRouter(handlers)

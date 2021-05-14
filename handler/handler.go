@@ -7,15 +7,18 @@ import (
 )
 
 type Handler struct {
-	covidTrackerService *service.CovidTrackerService
+	CovidTrackerServiceImp *service.CovidTrackerServiceImp
 }
 
-func NewHandler(covidTrackerService *service.CovidTrackerService) *Handler {
-	return &Handler{covidTrackerService: covidTrackerService}
+func NewHandler(CovidTrackerServiceImp *service.CovidTrackerServiceImp) *Handler {
+	return &Handler{CovidTrackerServiceImp: CovidTrackerServiceImp}
 }
 
 func (h *Handler) CovidSummary(c *gin.Context) {
-	response := h.covidTrackerService.GetCovidSummary()
+
+	covidStat, _ := h.CovidTrackerServiceImp.GetCovidStat()
+
+	response := h.CovidTrackerServiceImp.GetCovidSummary(covidStat)
 
 	c.JSON(http.StatusOK, response)
 }

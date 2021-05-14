@@ -65,8 +65,12 @@ http:
     ├── router
     │   └── httpRouter.go
     ├── service
+    │   ├── mock
+    │   │   └── covid_tracker.mock.go
     │   ├── covid_tracker.go
     │   └── covid_tracker_test.go
+    ├── utils
+    │   └── utils.go
     ├── docker-compose.yml
     ├── Dockerfile
     ├── Makefile
