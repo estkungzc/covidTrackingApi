@@ -2,7 +2,7 @@
 
 ## Description
 
--   API summary COVID-19 stats using https://covid19.th-stat.com/api/open/cases
+-   API summary COVID-19 stats using "http://static.wongnai.com/devinterview/covid-cases.json"
 -   Structure base on https://github.com/thanawatpetchuen/ginstructure
 
 ## Tools
