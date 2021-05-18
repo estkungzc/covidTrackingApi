@@ -1,24 +1,25 @@
 package handler
 
 import (
+	"net/http"
+
 	"github.com/estkungzc/covidTrackingApi/service"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 type Handler struct {
-	CovidTrackerServiceImp *service.CovidTrackerServiceImp
+	CovidTrackerService service.CovidTrackerService
 }
 
-func NewHandler(CovidTrackerServiceImp *service.CovidTrackerServiceImp) *Handler {
-	return &Handler{CovidTrackerServiceImp: CovidTrackerServiceImp}
+func NewHandler(CovidTrackerService service.CovidTrackerService) *Handler {
+	return &Handler{CovidTrackerService: CovidTrackerService}
 }
 
 func (h *Handler) CovidSummary(c *gin.Context) {
 
-	covidStat, _ := h.CovidTrackerServiceImp.GetCovidStat()
+	covidStat, _ := h.CovidTrackerService.GetCovidStat()
 
-	response := h.CovidTrackerServiceImp.GetCovidSummary(covidStat)
+	response := h.CovidTrackerService.GetCovidSummary(covidStat)
 
 	c.JSON(http.StatusOK, response)
 }

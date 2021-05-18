@@ -2,21 +2,22 @@ package service
 
 import (
 	"encoding/json"
+	"time"
+
 	"github.com/estkungzc/covidTrackingApi/model"
 	"github.com/estkungzc/covidTrackingApi/utils"
 	"github.com/gojektech/heimdall/v6/httpclient"
-	"time"
 )
 
 type CovidTrackerService interface {
-	GetCovidStat() model.CovidClientResponse
-	GetCovidSummary() model.CovidSummaryResponse
+	GetCovidStat() (*model.CovidClientResponse, error)
+	GetCovidSummary(covidStat *model.CovidClientResponse) model.CovidSummaryResponse
 }
 
 type CovidTrackerServiceImp struct {
 }
 
-func NewCovidTrackerServiceImp() *CovidTrackerServiceImp {
+func NewCovidTrackerServiceImp() CovidTrackerService {
 	return &CovidTrackerServiceImp{}
 }
 
